@@ -7,6 +7,7 @@ class Hi extends React.Component {
       superhero: '',
       power: '',
       optionPower: '',
+      heroes: [],
     }
   }
 
@@ -54,18 +55,31 @@ class Hi extends React.Component {
         <button
           className="myButton"
           onClick={() =>
-            alert(
-              'Hello ' +
-                this.state.superhero +
-                ' power:' +
-                this.state.power +
-                ' ' +
-                this.state.optionPower
-            )
+            this.setState({
+              heroes: [
+                ...this.state.heroes,
+                {
+                  name: this.state.superhero,
+                  power: this.state.power,
+                  optionPower: this.state.optionPower,
+                },
+              ],
+            })
           }
         >
-          Click Me
+          Add Hero
         </button>
+        {this.state.heroes.length === 0 ? (
+          <p>no hero</p>
+        ) : (
+          <ul>
+            {this.state.heroes.map((hero, index) => (
+              <li key={index}>
+                {hero.name} : {hero.power} : {hero.optionPower}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     )
   }
