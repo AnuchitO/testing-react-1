@@ -1,19 +1,35 @@
-import {useState, useEffect, Fragment, useMemo} from 'react'
+import {useState, useEffect, Fragment, useMemo, useReducer} from 'react'
+
+const initialHero = {
+  superhero: '',
+  power: '',
+  optionPower: '',
+  loading: true,
+  heroes: [],
+}
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE_SUPER_HERO':
+      return {...state, superhero: action.payload}
+    case 'UPDATE_POWER':
+      return {...state, power: action.payload}
+    case 'UPDATE_OPTION_POWER':
+      return {...state, optionPower: action.payload}
+    case 'UPDATE_HEROES':
+      return {...state, heroes: [...state.heroes, ...action.payload]}
+    case 'LOAD_HERORES':
+      return {...state, heroes: action.payload}
+    default:
+      return state
+  }
+}
+
+const actionLoadHeroes = (data) => ({type: 'LOAD_HERORES', payload: data})
 
 export function HiFunc(props) {
-  const [hero, setHero] = useState({
-    superhero: '',
-    power: '',
-    optionPower: '',
-    loading: true,
-    heroes: [],
-  })
-  // const [superhero, setSuperhero] = useState('')
-  // const [power, setPower] = useState('')
-  // const [optionPower, setOptionPower] = useState('')
-  // const [heroes, setHeroes] = useState([])
+  const [herox, dispatch] = useReducer(reducer, initialHero)
 
-  const [click, setClick] = useState(0)
   const [loading, setLoading] = useState(true)
   const person = useMemo(() => ({name: 'AnuchitO'}), [])
 
@@ -24,10 +40,7 @@ export function HiFunc(props) {
     fetch(`http://localhost:2727/heroes`)
       .then((res) => res.json())
       .then((data) => {
-        setHero((current) => ({
-          ...current,
-          heroes: data,
-        }))
+        dispatch(actionLoadHeroes(data))
         setLoading(false)
       })
     // }, 3000)
@@ -42,12 +55,9 @@ export function HiFunc(props) {
       <input
         id="superhero"
         type="text"
-        value={hero.superhero}
+        value={herox.superhero}
         onChange={(e) => {
-          setHero((current) => ({
-            ...current,
-            superhero: e.target.value,
-          }))
+          dispatch({type: 'UPDATE_SUPER_HERO', payload: e.target.value})
         }}
       />
       <br />
@@ -55,17 +65,17 @@ export function HiFunc(props) {
       <input
         id="power"
         type="text"
-        value={hero.power}
+        value={herox.power}
         onChange={(e) => {
-          setHero((current) => ({...current, power: e.target.value}))
+          dispatch({type: 'UPDATE_POWER', payload: e.target.value})
         }}
       />
 
       <br />
       <select
-        value={hero.optionPower}
+        value={herox.optionPower}
         onChange={(e) => {
-          setHero((current) => ({...current, optionPower: e.target.value}))
+          dispatch({type: 'UPDATE_OPTION_POWER', payload: e.target.value})
         }}
       >
         <option value="">Select Power</option>
@@ -81,27 +91,24 @@ export function HiFunc(props) {
       <button
         className="myButton"
         onClick={() => {
-          setHero((current) => ({
-            ...current,
-            heroes: [
-              ...current.heroes,
+          dispatch({
+            type: 'UPDATE_HEROES',
+            payload: [
               {
-                name: hero.superhero,
-                power: hero.power,
-                optionPower: hero.optionPower,
+                name: herox.superhero,
+                power: herox.power,
+                optionPower: herox.optionPower,
               },
             ],
-          }))
-          setClick(click + 1)
+          })
         }}
       >
         Add Hero
       </button>
-      <p>{click}</p>
       {loading && <p>loading...</p>}
-      {hero.heroes.length > 0 && (
+      {herox.heroes.length > 0 && (
         <ul>
-          {hero.heroes.map((hero, index) => (
+          {herox.heroes.map((hero, index) => (
             <li key={index}>
               {hero.name} : {hero.power} : {hero.optionPower}
             </li>
