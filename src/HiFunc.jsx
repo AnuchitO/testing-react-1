@@ -1,37 +1,10 @@
 import {useState, useEffect, Fragment, useMemo} from 'react'
+import {useHero} from './useHero'
 
 export function HiFunc(props) {
-  const [hero, setHero] = useState({
-    superhero: '',
-    power: '',
-    optionPower: '',
-    loading: true,
-    heroes: [],
-  })
-  // const [superhero, setSuperhero] = useState('')
-  // const [power, setPower] = useState('')
-  // const [optionPower, setOptionPower] = useState('')
-  // const [heroes, setHeroes] = useState([])
-
+  const [hero, setHero] = useHero()
   const [click, setClick] = useState(0)
   const [loading, setLoading] = useState(true)
-  const person = useMemo(() => ({name: 'AnuchitO'}), [])
-
-  useEffect(() => {
-    console.log('HiFunc useEffect')
-    // setTimeout(() => {
-    setLoading(true)
-    fetch(`http://localhost:2727/heroes`)
-      .then((res) => res.json())
-      .then((data) => {
-        setHero((current) => ({
-          ...current,
-          heroes: data,
-        }))
-        setLoading(false)
-      })
-    // }, 3000)
-  }, [person])
 
   useEffect(() => {})
 
