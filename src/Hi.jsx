@@ -7,16 +7,19 @@ class Hi extends React.Component {
       superhero: '',
       power: '',
       optionPower: '',
+      loading: true,
       heroes: [],
     }
   }
 
   componentDidMount() {
-    fetch(`http://localhost:2727/heroes`)
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({heroes: data})
-      })
+    setTimeout(() => {
+      fetch(`http://localhost:2727/heroes`)
+        .then((res) => res.json())
+        .then((data) => {
+          this.setState({heroes: data})
+        })
+    }, 3000)
   }
 
   render() {
