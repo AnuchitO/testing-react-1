@@ -15,28 +15,14 @@ class Hi extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({loading: true})
-      Promise.resolve([
-        {
-          name: 'Thor',
-          power: 5000,
-          powerName: 'Lightning',
-        },
-        {
-          name: 'IronMan',
-          power: 300,
-          powerName: 'Arc reactor',
-        },
-        {
-          name: 'DoctorStrange',
-          power: 4500,
-          powerName: 'Magic',
-        },
-      ]).then((data) => {
-        this.setState({
-          heroes: data,
-          loading: false,
+      fetch(`http://localhost:2727/heroes`)
+        .then((res) => res.json())
+        .then((data) => {
+          this.setState({
+            heroes: data,
+            loading: false,
+          })
         })
-      })
     }, 3000)
   }
 
