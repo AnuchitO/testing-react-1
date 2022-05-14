@@ -10,7 +10,7 @@
             {
               "deepEquals": {
                 "method": "GET",
-                "path": "/superhero/Thor"
+                "path": "/superheroes/Thor"
               }
             }
           ],
@@ -35,7 +35,7 @@
             {
               "deepEquals": {
                 "method": "GET",
-                "path": "/superhero/IronMan"
+                "path": "/superheroes/IronMan"
               }
             }
           ],
@@ -60,7 +60,7 @@
             {
               "deepEquals": {
                 "method": "GET",
-                "path": "/superhero/DoctorStrange"
+                "path": "/superheroes/DoctorStrange"
               }
             }
           ],
@@ -85,7 +85,7 @@
             {
               "deepEquals": {
                 "method": "GET",
-                "path": "/superhero"
+                "path": "/superheroes"
               }
             }
           ],
@@ -108,7 +108,7 @@
                     "powerName": "Arc reactor"
                   },
                   {
-                    "name": "Doctor Strange",
+                    "name": "DoctorStrange",
                     "power": 4500,
                     "powerName": "Magic"
                   }
