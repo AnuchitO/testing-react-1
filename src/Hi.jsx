@@ -26,6 +26,10 @@ class Hi extends React.Component {
     }, 3000)
   }
 
+	componentDidUpdate() {
+		
+	}
+
   render() {
     return (
       <div>
