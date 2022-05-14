@@ -3,6 +3,7 @@
     {
       "port": 2727,
       "protocol": "http",
+
       "name": "User",
       "stubs": [
         {
@@ -19,7 +20,8 @@
               "is": {
                 "statusCode": 200,
                 "headers": {
-                  "Content-Type": "application/json"
+                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "*"
                 },
                 "body": {
                   "name": "Thor",
@@ -44,7 +46,8 @@
               "is": {
                 "statusCode": 200,
                 "headers": {
-                  "Content-Type": "application/json"
+                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "*"
                 },
                 "body": {
                   "name": "IronMan",
@@ -69,7 +72,8 @@
               "is": {
                 "statusCode": 200,
                 "headers": {
-                  "Content-Type": "application/json"
+                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "*"
                 },
                 "body": {
                   "name": "DoctorStrange",
@@ -94,7 +98,8 @@
               "is": {
                 "statusCode": 200,
                 "headers": {
-                  "Content-Type": "application/json"
+                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "*"
                 },
                 "body": [
                   {
@@ -123,7 +128,8 @@
               "is": {
                 "statusCode": 404,
                 "headers": {
-                  "Content-Type": "application/json"
+                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "*"
                 },
                 "body": {
                   "error": "not found"
