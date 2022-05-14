@@ -14,11 +14,29 @@ class Hi extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      fetch(`http://localhost:2727/heroes`)
-        .then((res) => res.json())
-        .then((data) => {
-          this.setState({heroes: data})
+      this.setState({loading: true})
+      Promise.resolve([
+        {
+          name: 'Thor',
+          power: 5000,
+          powerName: 'Lightning',
+        },
+        {
+          name: 'IronMan',
+          power: 300,
+          powerName: 'Arc reactor',
+        },
+        {
+          name: 'DoctorStrange',
+          power: 4500,
+          powerName: 'Magic',
+        },
+      ]).then((data) => {
+        this.setState({
+          heroes: data,
+          loading: false,
         })
+      })
     }, 3000)
   }
 
@@ -80,7 +98,7 @@ class Hi extends React.Component {
         >
           Add Hero
         </button>
-        {this.state.heroes.length === 0 && <p>no hero</p>}
+        {this.state.loading && <p>loading...</p>}
         {this.state.heroes.length > 0 && (
           <ul>
             {this.state.heroes.map((hero, index) => (
