@@ -52,6 +52,7 @@ class Hi extends React.Component {
         </select>
         <br />
         <button
+          className="myButton"
           onClick={() =>
             alert(
               'Hello ' +
