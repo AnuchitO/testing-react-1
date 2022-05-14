@@ -14,7 +14,7 @@ class Hi extends React.Component {
     return (
       <div>
         <div>Hi {this.props.name}</div>
-        <label htmlFor="superhero"> Superhero Namex: </label>
+        <label htmlFor="superhero"> Superhero Name: </label>
         <input
           id="superhero"
           type="text"
@@ -64,7 +64,7 @@ class Hi extends React.Component {
             )
           }
         >
-          Click me
+          Click Me
         </button>
       </div>
     )
