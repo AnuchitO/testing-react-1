@@ -69,9 +69,8 @@ class Hi extends React.Component {
         >
           Add Hero
         </button>
-        {this.state.heroes.length === 0 ? (
-          <p>no hero</p>
-        ) : (
+        {this.state.heroes.length === 0 && <p>no hero</p>}
+        {this.state.heroes.length > 0 && (
           <ul>
             {this.state.heroes.map((hero, index) => (
               <li key={index}>
