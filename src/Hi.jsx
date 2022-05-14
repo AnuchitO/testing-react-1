@@ -11,6 +11,14 @@ class Hi extends React.Component {
     }
   }
 
+  componentDidMount() {
+    fetch(`http://localhost:2727/heroes`)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({heroes: data})
+      })
+  }
+
   render() {
     return (
       <div>
