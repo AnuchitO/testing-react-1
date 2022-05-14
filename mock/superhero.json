@@ -10,7 +10,7 @@
             {
               "deepEquals": {
                 "method": "GET",
-                "path": "/superheroes/Thor"
+                "path": "/heroes/Thor"
               }
             }
           ],
@@ -35,7 +35,7 @@
             {
               "deepEquals": {
                 "method": "GET",
-                "path": "/superheroes/IronMan"
+                "path": "/heroes/IronMan"
               }
             }
           ],
@@ -60,7 +60,7 @@
             {
               "deepEquals": {
                 "method": "GET",
-                "path": "/superheroes/DoctorStrange"
+                "path": "/heroes/DoctorStrange"
               }
             }
           ],
@@ -85,7 +85,7 @@
             {
               "deepEquals": {
                 "method": "GET",
-                "path": "/superheroes"
+                "path": "/heroes"
               }
             }
           ],
