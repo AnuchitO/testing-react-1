@@ -9,8 +9,8 @@ import ExampleChangeLanguage from './example/testinglibrary/ChangeLanguage'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <ExampleChangeLanguage />
+    <App />
+    {/* <ExampleChangeLanguage /> */}
   </React.StrictMode>
 )
 
