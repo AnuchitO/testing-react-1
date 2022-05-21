@@ -4,12 +4,12 @@ import './index.css'
 import App from './App'
 import logo from './logo.svg'
 import reportWebVitals from './reportWebVitals'
-
-
+import ExampleCounter from './example/testinglibrary/CounterUpDown'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
+    <ExampleCounter />
     <App />
   </React.StrictMode>
 )
