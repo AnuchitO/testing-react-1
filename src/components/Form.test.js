@@ -9,9 +9,9 @@ describe('Form Search', () => {
     const {getByRole} = render(<Form handleSubmit={fn} />)
 
     const search = await getByRole('textbox', {name: 'search'})
-    const btn = getByRole('button')
-
     userEvent.type(search, 'mountain')
+
+    const btn = getByRole('button')
     userEvent.click(btn)
 
     expect(fn).toHaveBeenCalledWith('mountain')
