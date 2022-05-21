@@ -13,3 +13,21 @@ export const runSearch = (apiKey, query) => {
       return error
     })
 }
+
+// {
+// 	data: {
+// 		photos: [
+// 			{
+// 				id: '52087678033',
+// 				owner: '74939715@N05',
+// 				secret: '6fd4a68b58',
+// 				server: '65535',
+// 				farm: 66,
+// 				title: 'Wind blown',
+// 				ispublic: 1,
+// 				isfriend: 0,
+// 				isfamily: 0,
+// 			},
+// 		],
+// 	},
+// }
