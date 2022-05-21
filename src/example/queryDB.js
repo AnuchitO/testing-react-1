@@ -1,7 +1,7 @@
 export const queryDBReject = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      reject('connect ECONNREFUSED')
+      reject({ message: 'connect ECONNREFUSED'})
     }, 300)
   })
 }
