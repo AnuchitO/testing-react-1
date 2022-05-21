@@ -11,6 +11,7 @@ export function ShowCounter() {
       </p>
       <input
         type="text"
+        aria-label="name"
         value={name}
         placeholder="Who count"
         onChange={(e) => setName(e.target.value)}
