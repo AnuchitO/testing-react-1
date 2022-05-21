@@ -1,14 +1,17 @@
-import {_searchPerson} from './search'
+import {searchPerson} from './search'
 
-test.only('search person should return AnuchitO number', async () => {
-  const conn = {
+jest.mock('./db', () => {
+  return {
     Query: (firstName, lastName) => {
       return {
         phone: 'fake phone number!!',
       }
     },
   }
-  const result = await _searchPerson(conn, 'AnuchitO', 'O')
+})
+
+test.only('search person should return AnuchitO number', async () => {
+  const result = await searchPerson('AnuchitO', 'O')
 
   expect(result).toEqual({
     phone: 'fake phone number!!',
